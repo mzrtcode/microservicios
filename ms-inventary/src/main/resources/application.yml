@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ms-inventory
+  jpa:
+    ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5431/ms_inventory
+    username: root
+    password: toor
+
+server:
+  port: 8083

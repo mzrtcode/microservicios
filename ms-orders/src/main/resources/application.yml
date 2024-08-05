@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ms-orders
+  jpa:
+    ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:5431/ms_orders
+    username: root
+    password: toor
+
+server:
+  port: 8082
