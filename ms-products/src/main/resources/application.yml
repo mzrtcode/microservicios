@@ -1,12 +1,17 @@
 spring:
   application:
     name: ms-products
-  jpa:
-    ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5431/ms_products
+    url: jdbc:postgresql://localhost:5432/ms_products
     username: root
     password: toor
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
   port: 8081

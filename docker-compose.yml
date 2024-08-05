@@ -6,9 +6,9 @@ services:
     image: postgres:15.2
     restart: unless-stopped
     environment:
-      POSTGRES_DB: ms_inventory
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: toor
+      - POSTGRES_DB=ms_inventory
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=toor
     ports:
       - "5431:5432"
 
@@ -18,10 +18,10 @@ services:
     image: mysql:8.0.33
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ms_orders
-      MYSQL_USER: root
-      MYSQL_PASSWORD: toor
-      MYSQL_ROOT_PASSWORD: toor
+      - MYSQL_DATABASE=ms_orders
+      - MYSQL_USER=mzrt
+      - MYSQL_PASSWORD=toor
+      - MYSQL_ROOT_PASSWORD=toor
     ports:
       - "3306:3306"
 
@@ -31,8 +31,9 @@ services:
     image: postgres:15.2
     restart: unless-stopped
     environment:
-      POSTGRES_DB: products
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: toor
+      - POSTGRES_DB=ms_products
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=toor
     ports:
       - "5432:5432"
+
