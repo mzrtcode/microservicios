@@ -5,12 +5,14 @@ import com.mzrtcode.ms_orders.model.dto.BaseResponse;
 import com.mzrtcode.ms_orders.model.dto.OrderRequest;
 import com.mzrtcode.ms_orders.model.dto.OrderResponse;
 import com.mzrtcode.ms_orders.model.entity.Order;
+import com.mzrtcode.ms_orders.model.entity.OrderItem;
 import com.mzrtcode.ms_orders.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -37,14 +39,22 @@ public class OrderService {
             Order order = orderMapper.toOrder(orderRequest);
             order.setOrderNumber(UUID.randomUUID().toString());
 
+
+            for(OrderItem item: order.getOrderItems()){
+                item.setOrder(order);
+            }
+
+
             Order savedOrder = orderRepository.save(order);
             log.info("Order saved: {}", order);
             return orderMapper.toOrderResponse(savedOrder);
         }else{
             throw new IllegalArgumentException("Some of the products are not in stock");
         }
+    }
 
-
-
+    public List<OrderResponse> getAllOrders(){
+        List<Order> orders = orderRepository.findAll();
+        return orderMapper.toOrderResponse(orders);
     }
 }
