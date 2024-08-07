@@ -4,6 +4,7 @@ import com.mzrtcode.ms_orders.model.dto.OrderRequest;
 import com.mzrtcode.ms_orders.model.dto.OrderResponse;
 import com.mzrtcode.ms_orders.model.entity.Order;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring",

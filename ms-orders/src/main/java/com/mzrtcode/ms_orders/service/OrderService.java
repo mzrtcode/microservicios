@@ -25,7 +25,6 @@ public class OrderService {
 
     public OrderResponse placeOrder(OrderRequest orderRequest) {
 
-        //TODO: Check products in inventary
         BaseResponse result = this.webClientBuilder.build()
                 .post()
                 .uri("http://localhost:8083/api/inventary/in-stock")
