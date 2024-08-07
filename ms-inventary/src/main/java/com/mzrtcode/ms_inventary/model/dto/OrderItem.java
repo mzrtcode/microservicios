@@ -1,6 +1,5 @@
-package com.mzrtcode.ms_orders.model.dto;
+package com.mzrtcode.ms_inventary.model.dto;
 
-import com.mzrtcode.ms_orders.model.entity.Order;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
