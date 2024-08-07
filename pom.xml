@@ -20,6 +20,7 @@
 	</properties>
 
 	<modules>
+		<module>discovery-server</module>
 		<module>api-gateway</module>
 		<module>ms-inventary</module>
 		<module>ms-orders</module>
