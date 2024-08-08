@@ -90,6 +90,12 @@
 							<version>${org.mapstruct.version}</version>
 						</path>
 
+						<dependency>
+							<groupId>org.springframework.cloud</groupId>
+							<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+						</dependency>
+
+
 
 						<!-- other annotation processors -->
 					</annotationProcessorPaths>
