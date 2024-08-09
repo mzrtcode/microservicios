@@ -8,15 +8,15 @@ spring:
     gateway:
       routes:
         - id: inventory-service
-          uri: http://localhost:8083
+          uri: lb://ms-inventory
           predicates:
             - Path=/api/inventory/**
         - id: orders-service
-          uri: http://localhost:8082
+          uri: lb://ms-orders
           predicates:
             - Path=/api/orders/**
-        - id: product-service
-          uri: http://localhost:8081
+        - id: products-service
+          uri: lb://ms-products
           predicates:
             - Path=/api/products/**
 eureka:
