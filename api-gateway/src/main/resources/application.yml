@@ -19,9 +19,39 @@ spring:
           uri: lb://ms-products
           predicates:
             - Path=/api/products/**
+        - id: discovery-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+        - id: discovery-server-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+      default-filters:
+        - SaveSession
+        - TokenRelay
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: microservices_client
+            client-secret: 51jhYFqg0oqV0qQbmywsyE2rn9hSYydc
+            provider: keycloak
+            scope: openid
+            authorization-grant-type: authorization_code
+            redirect-uri: {baseUrl}:8080/login/oauth2/code/keycloak
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8181/realms/microservices-realm
+
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka:password@localhost:8761/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
